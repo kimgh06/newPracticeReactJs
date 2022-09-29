@@ -1,0 +1,15 @@
+.App {
+  margin:auto;
+  text-align: center;
+  background-color: aquamarine;
+  border-radius: 30px;
+  width: 50%;
+}
+.title{
+  font-size: 50px;
+  color:gray;
+}
+body{
+  background-color: beige;
+  height: 100%;
+}
