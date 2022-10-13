@@ -9,9 +9,11 @@ function hello(){
 
 function App(props) {
   return (
-    <div>
-      <button onClick={hello}>hello</button>
-    </div>
+    <body>
+      <div id="hello">
+        <button onClick={hello}>hello</button>
+      </div>
+    </body>
   );
 }
 
