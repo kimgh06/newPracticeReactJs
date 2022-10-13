@@ -1,28 +1,16 @@
 import "./App.css";
 import React, {Component} from 'react';
 
-class Shape{
-  static create(x, y){
-    return new Shape(x, y);
-  }
-  name = 'Shape';
-  constructor (x, y){
-    this.move(x,y);
-  }
-  move(x,y){
-    this.x = x;
-    this.y = y;
-  }
-  area(){
-    return 0;
-  }
+function hello(){
+  const div = document.createElement("div");
+  div.innerText = "hello";
+  document.body.appendChild(div);
 }
-let c = new Shape(0,0);
 
 function App(props) {
   return (
     <div>
-      어딜 보시는 거죠 그건 제 작업물입니다만?
+      <button onClick={hello}>hello</button>
     </div>
   );
 }
