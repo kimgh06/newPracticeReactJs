@@ -4,7 +4,7 @@ import React, {Component} from 'react';
 function hello(){
   const div = document.createElement("div");
   div.innerText = "hello";
-  document.body.appendChild(div);
+  document.querySelector("#hello").appendChild(div);
 }
 
 function iii(){
