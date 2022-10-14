@@ -7,13 +7,16 @@ function hello(){
   document.body.appendChild(div);
 }
 
+function iii(){
+  alert("a;slkjfa;sldkj");
+}
+
 function App(props) {
   return (
-    <body>
-      <div id="hello">
-        <button onClick={hello}>hello</button>
-      </div>
-    </body>
+    <div id="hello">
+      <button onClick={hello}>hello</button>
+      <button onClick={iii}>iii</button>
+    </div>
   );
 }
 
