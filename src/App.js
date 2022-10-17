@@ -6,6 +6,11 @@ import React, {useRef , useState} from 'react';
 import UserList from "./TIL/UserList";
 import CreateUser from "./TIL/CreateUser";
 
+function countActiveUsers(users){
+  console.log("counting");
+  return users.filter(user => user.active).length;
+}
+
 function App() {
   const [inputs, setInputs] = useState({
     username: '',
@@ -64,6 +69,7 @@ function App() {
         )
     );
   };
+  const count = countActiveUsers(users);
   return (
   <>
     <CreateUser
@@ -73,6 +79,7 @@ function App() {
       onCreate={onCreate}
     />
     <UserList users={users} onRemove={onRemove} onToggle={onToggle} />
+    <div>활동중인 사용자수 : {count}</div>
   </>
   );
 }
