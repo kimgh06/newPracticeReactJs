@@ -1,24 +1,13 @@
 /* eslint-disable */
-
 import "./App.css";
 import React, {Component} from 'react';
-import { render } from "react-dom";
+import { render } from "react-dom"; 
+import InputSample from './InputSample';
 
-class App extends Component{
-  render(){
-    return(
-      <ul>
-        <li>
-          hello
-        </li>
-        <ul>
-          <li>1</li>
-          <li>2</li>
-          <li>3</li>
-        </ul>
-      </ul>
-    );
-  }
+function App() {
+  return (
+    <InputSample />
+  );
 }
     
 export default App;
