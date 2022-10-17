@@ -1,6 +1,6 @@
 /* eslint-disable */
 import "./App.css";
-import React, {useRef , useState} from 'react';
+import React, {useRef , useState, useMemo} from 'react';
 // import { render } from "react-dom"; 
 // import InputSample from './TIL/InputSample';
 import UserList from "./TIL/UserList";
@@ -69,7 +69,7 @@ function App() {
         )
     );
   };
-  const count = countActiveUsers(users);
+  const count = useMemo(() => countActiveUsers(users), [users]);
   return (
   <>
     <CreateUser
