@@ -1,11 +1,10 @@
 /* eslint-disable */
 import "./App.css";
-import React, {useRef} from 'react';
+import React, {useRef , useState} from 'react';
 // import { render } from "react-dom"; 
 // import InputSample from './TIL/InputSample';
 import UserList from "./TIL/UserList";
 import CreateUser from "./TIL/CreateUser";
-import { useState } from "react";
 
 function App() {
   const [inputs, setInputs] = useState({
@@ -24,17 +23,20 @@ function App() {
     {
       id: 1,
       username: 'velopert',
-      email: 'public.velopert@gmail.com'
+      email: 'public.velopert@gmail.com',
+      active: true
     },
     {
       id: 2,
       username: 'tester',
-      email: 'tester@example.com'
+      email: 'tester@example.com',
+      active: false
     },
     {
       id: 3,
       username: 'liz',
-      email: 'liz@example.com'
+      email: 'liz@example.com',
+      active: false
     }
   ]);
   const nextId = useRef(4);
@@ -55,6 +57,13 @@ function App() {
   const onRemove = id =>{
     setUsers(users.filter(user => user.id !== id));
   }
+  const onToggle = id =>{
+    setUsers(
+      users.map(user =>
+        user.id === id? {...user, active:!user.active}:user
+        )
+    );
+  };
   return (
   <>
     <CreateUser
@@ -63,7 +72,7 @@ function App() {
       onChange={onChange}
       onCreate={onCreate}
     />
-    <UserList users={users} onRemove={onRemove} />
+    <UserList users={users} onRemove={onRemove} onToggle={onToggle} />
   </>
   );
 }
