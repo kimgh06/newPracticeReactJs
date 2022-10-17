@@ -1,22 +1,18 @@
 import "./App.css";
-import React, {Component} from 'react';
+import React, {Component} from 'react';// eslint-disable-line no-unused-vars
 
-function hello(){
-  const div = document.createElement("div");
-  div.innerText = "hello";
-  document.querySelector("#hello").appendChild(div);
+class click{
+  name;
+  constructor (name) {
+    return `${this.name}`;
+  }
 }
 
-function iii(){
-  alert("a;slkjfa;sldkj");
-}
+let mode = new click("haha");
 
 function App(props) {
   return (
-    <div id="hello">
-      <button onClick={hello}>hello</button>
-      <button onClick={iii}>iii</button>
-    </div>
+    <span>{mode.name()}</span>
   );
 }
 
