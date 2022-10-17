@@ -7,27 +7,17 @@ import UserList from "./TIL/UserList";
 import CreateUser from "./TIL/CreateUser";
 import Counter from "./TIL/Counter";
 
-function countActiveUsers(users){
-  console.log("counting");
+function countActiveUsers(users) {
+  console.log('활성 사용자 수를 세는중...');
   return users.filter(user => user.active).length;
 }
 
-function App() {
-  const [inputs, setInputs] = useState({
+const initialState = {
+  inputs: {
     username: '',
     email: ''
-  });
-  const { username, email} = inputs;
-  const onChange = useCallback(e =>{
-    const { name, value} = e.target;
-    setInputs({
-      ...inputs,
-      [name]:value
-    });
   },
-  []
-  );
-  const [users,setUsers] = useState([
+  users: [
     {
       id: 1,
       username: 'velopert',
@@ -46,47 +36,22 @@ function App() {
       email: 'liz@example.com',
       active: false
     }
-  ]);
-  const nextId = useRef(4);
-  const onCreate = useCallback(() =>{
-    const user = {
-      id:nextId.current,
-      username,
-      email
-    };
-    setUsers([...users, user]);
-    setInputs({
-      username:'',
-      email:''
-    })
-    nextId.current += 1;
-  }, [username, email]);
+  ]
+};
 
-  const onRemove = id =>{
-    setUsers(users.filter(user => user.id !== id));
-  }
-  const onToggle = useCallback(id =>{
-    setUsers(
-      users.map(user =>
-        user.id === id? {...user, active:!user.active}:user
-        )
-    );
-  },
-  [users]
-  );
-  const count = useMemo(() => countActiveUsers(users), [users]);
+function reducer(state, action) {
+  return state;
+}
+
+function App() {
+  const [state, dispatch] = useReducer(reducer, initialState);
   return (
-  <>
-    <CreateUser
-      username={username}
-      email={email}
-      onChange={onChange}
-      onCreate={onCreate}
-    />
-    <UserList users={users} onRemove={onRemove} onToggle={onToggle} />
-    <div>활동중인 사용자수 : {count}</div>
-  </>
+    <>
+      <CreateUser />
+      <UserList users={[]} />
+      <div>활성사용자 수 : 0</div>
+    </>
   );
 }
-    
+
 export default App;
