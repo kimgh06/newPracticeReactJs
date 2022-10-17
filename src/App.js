@@ -1,6 +1,6 @@
 /* eslint-disable */
 import "./App.css";
-import React, {useRef , useState, useMemo} from 'react';
+import React, {useRef , useState, useMemo, useCallback} from 'react';
 // import { render } from "react-dom"; 
 // import InputSample from './TIL/InputSample';
 import UserList from "./TIL/UserList";
@@ -17,13 +17,15 @@ function App() {
     email: ''
   });
   const { username, email} = inputs;
-  const onChange = e =>{
+  const onChange = useCallback(e =>{
     const { name, value} = e.target;
     setInputs({
       ...inputs,
       [name]:value
     });
-  }
+  },
+  [inputs]
+  );
   const [users,setUsers] = useState([
     {
       id: 1,
@@ -45,7 +47,7 @@ function App() {
     }
   ]);
   const nextId = useRef(4);
-  const onCreate = () =>{
+  const onCreate = useCallback(() =>{
     const user = {
       id:nextId.current,
       username,
@@ -57,18 +59,20 @@ function App() {
       email:''
     })
     nextId.current += 1;
-  }
+  }, [users, username, email]);
 
   const onRemove = id =>{
     setUsers(users.filter(user => user.id !== id));
   }
-  const onToggle = id =>{
+  const onToggle = useCallback(id =>{
     setUsers(
       users.map(user =>
         user.id === id? {...user, active:!user.active}:user
         )
     );
-  };
+  },
+  [users]
+  );
   const count = useMemo(() => countActiveUsers(users), [users]);
   return (
   <>
