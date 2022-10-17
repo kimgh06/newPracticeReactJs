@@ -1,19 +1,15 @@
 import "./App.css";
 import React, {Component} from 'react';// eslint-disable-line no-unused-vars
+import { render } from "react-dom";
 
-class click{
-  name;
-  constructor (name) {
-    return `${this.name}`;
-  }
+function hello(){
+  return "a";
 }
-
-let mode = new click("haha");
 
 function App(props) {
   return (
-    <span>{mode.name()}</span>
+    <span>{hello()}</span>
   );
 }
-
+    
 export default App;
