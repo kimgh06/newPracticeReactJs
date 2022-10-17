@@ -24,7 +24,7 @@ function App() {
       [name]:value
     });
   },
-  [inputs]
+  []
   );
   const [users,setUsers] = useState([
     {
@@ -59,7 +59,7 @@ function App() {
       email:''
     })
     nextId.current += 1;
-  }, [users, username, email]);
+  }, [username, email]);
 
   const onRemove = id =>{
     setUsers(users.filter(user => user.id !== id));
