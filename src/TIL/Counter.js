@@ -1,18 +1,25 @@
 import React, { useReducer, Component } from 'react';
 
 class Counter extends Component{
-    handleIncrease(){
-        console.log("increase");
+    state = {
+        number:0,
     }
-    handledecrease(){
-        console.log("decrease");
+    handleIncrease = () => {
+        this.setState({
+            number : this.state.number + 1
+        });
+    }
+    handleDecrease = () => {      
+        this.setState({
+            number : this.state.number - 1
+        });
     }
     render(){
         return (
             <div>
-                <h1>0</h1>
+                <h1>{this.state.number}</h1>
                 <button onClick={this.handleIncrease}>+1</button>
-                <button onClick={this.handledecrease}>-1</button>
+                <button onClick={this.handleDecrease}>-1</button>
             </div>
         );
     }
