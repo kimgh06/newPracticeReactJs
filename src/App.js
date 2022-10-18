@@ -66,13 +66,8 @@ function App() {
   return (
     <>
       <UserDispatch.Provider value={dispatch}>
-        <CreateUser
-          username={username}
-          email={email}
-          onChange={onChange}
-          onCreate={onCreate}
-          />
-        <UserList users={users} onToggle={onToggle} onRemove={onRemove} />
+        <CreateUser/>
+        <UserList users={users}/>
         <div>활성사용자 수 : {count}</div>
       </UserDispatch.Provider>
     </>
