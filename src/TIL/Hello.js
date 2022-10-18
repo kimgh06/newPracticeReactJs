@@ -1,6 +1,9 @@
 import React, {Component} from 'react';
 
 class Hello extends Component{
+  static defaultProps ={
+    name: "none",
+  }
   render() {
     const {color, name, isSpecial} = this.props;
       return (
@@ -11,10 +14,5 @@ class Hello extends Component{
       );
   }
 }
-
-
-Hello.defaultProps = {
-  name: '이름 없음',
-};
 
 export default Hello;
