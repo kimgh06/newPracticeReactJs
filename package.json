@@ -1,5 +1,5 @@
 {
-  "name": "practiceReactJs",
+  "name": "practicereactjs",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -38,5 +38,17 @@
   },
   "devDependencies": {
     "eslint-plugin-react": "^7.31.10"
-  }
+  },
+  "description": "React는 웹 프레임 워크로, 자바스크립트 라이브러리의 하나로서\r 사용자 인터페이스를 만들기 위해 사용된다. -위키백과-",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kimgh06/practiceReactJs.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kimgh06/practiceReactJs/issues"
+  },
+  "homepage": "https://github.com/kimgh06/practiceReactJs#readme"
 }
