@@ -1,6 +1,6 @@
 /* eslint-disable */
 import "./App.css";
-import React, {useRef , useState, useMemo, useCallback} from 'react';
+import React, {useRef , useState, useMemo, useCallback, useReducer} from 'react';
 import UserList from './TIL/UserList';
 import CreateUser from './TIL/CreateUser';
 import useInputs from './TIL/Hooks/useInputs';
@@ -54,8 +54,10 @@ function reducer(state, action) {
   }
 }
 
+export const UserDispatch = React.createContext(null);
+
 function App() {
-  const [{ username, email }, onChange, reset] = useInputs({
+  const [{ username, email }, onChange, onReset] = useInputs({
     username: '',
     email: ''
   });
@@ -73,9 +75,9 @@ function App() {
         email
       }
     });
-    reset();
+    onReset();
     nextId.current += 1;
-  }, [username, email, reset]);
+  }, [username, email, onReset]);
 
   const onToggle = useCallback(id => {
     dispatch({
@@ -94,14 +96,16 @@ function App() {
   const count = useMemo(() => countActiveUsers(users), [users]);
   return (
     <>
-      <CreateUser
-        username={username}
-        email={email}
-        onChange={onChange}
-        onCreate={onCreate}
-      />
-      <UserList users={users} onToggle={onToggle} onRemove={onRemove} />
-      <div>활성사용자 수 : {count}</div>
+      <UserDispatch.Provider value={dispatch}>
+        <CreateUser
+          username={username}
+          email={email}
+          onChange={onChange}
+          onCreate={onCreate}
+          />
+        <UserList users={users} onToggle={onToggle} onRemove={onRemove} />
+        <div>활성사용자 수 : {count}</div>
+      </UserDispatch.Provider>
     </>
   );
 }
