@@ -1,13 +1,14 @@
 import React from 'react';
-import { useEffect, useState } from 'react';
-import './App.css';
-
-
+import './App.scss';
+import Button from './Components/Button';
 
 function App() {
   
   return (
     <div className="App">
+      <div className='buttons'>
+        <Button>BUTTON</Button>
+      </div>
     </div>
   );
 }
