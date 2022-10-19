@@ -14,8 +14,12 @@ Platform:
   win32 x64
 
 Trace: 
-  Error: connect ECONNABORTED 104.16.26.35:443
-      at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1278:16)
+  Error: https://registry.yarnpkg.com/node-sass: socket hang up
+      at connResetException (node:internal/errors:705:14)
+      at TLSSocket.socketOnEnd (node:_http_client:518:23)
+      at TLSSocket.emit (node:events:525:35)
+      at endReadableNT (node:internal/streams/readable:1358:12)
+      at processTicksAndRejections (node:internal/process/task_queues:83:21)
 
 npm manifest: 
   No manifest
