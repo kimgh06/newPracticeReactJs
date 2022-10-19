@@ -1,12 +1,11 @@
 import React from 'react';
 import './App.scss';
-import Button from './Components/Button';
+import Button from '../src/Components/Button';
 
 function App() {
-  
   return (
     <div className="App">
-      <div className='buttons'>
+      <div className="buttons">
         <Button>BUTTON</Button>
       </div>
     </div>
