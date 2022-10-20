@@ -9,11 +9,11 @@ function Button({ children, bcolor, size }) {
     toggle = !toggle;
     if(toggle === true){
       check = "A";
-      console.log(toggle);
     }
     else{
       check = "B";
     }
+    console.log(check);
   })
   return (<>
     <div id='main'>
