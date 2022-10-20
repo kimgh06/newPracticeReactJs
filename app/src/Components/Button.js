@@ -3,8 +3,11 @@ import './Button.scss';
 
 
 function Button({ children, bcolor, size }) {
+  const click = (()=>{
+    console.log(bcolor);
+  })
   return (
-    <button className="Button"><span>{children}</span></button>
+    <button className="Button" onClick={click}><span>{children}</span></button>
   );
 }
 
