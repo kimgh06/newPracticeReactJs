@@ -1,4 +1,4 @@
-$blue: #228be6; // 주석 선언
+$blue: #228be6;
 
 .Button {
   display: inline-flex;
@@ -9,21 +9,35 @@ $blue: #228be6; // 주석 선언
   border: none;
   cursor: pointer;
 
-  height: 2.25rem;
-  padding-left: 1rem;
-  padding-right: 1rem;
-  font-size: 1rem;
+  // 사이즈 관리
+  &.large {
+    height: 3rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    font-size: 1.25rem;
+  }
 
-  background: $blue; // 주석 사용
+  &.medium {
+    height: 2.25rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    font-size: 1rem;
+  }
+
+  &.small {
+    height: 1.75rem;
+    font-size: 0.875rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  background: $blue;
   &:hover {
-    background: lighten($blue, 10%); // 색상 10% 밝게
+    background: lighten($blue, 10%);
   }
 
   &:active {
-    background: darken($blue, 10%); // 색상 10% 어둡게
-  }
-  & span{
-    margin:auto;
+    background: darken($blue, 10%);
   }
 }
 
