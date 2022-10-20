@@ -4,7 +4,7 @@ const hello = (()=>{
   console.log("hello");
 })
 
-function Button({ children, bcolor }) {
+function Button({ children, bcolor, size }) {
   const [style, setStyle] = useState({
     color: bcolor,
   })
@@ -12,5 +12,9 @@ function Button({ children, bcolor }) {
     <button className="Button" style={style} onClick={hello}>{children}</button>
   );
 }
+
+Button.defaultProps = {
+  size:'medium',
+};
 
 export default Button;
