@@ -2,10 +2,9 @@ import React from 'react';
 import './Button.scss';
 
 
-function Button({ children, size }) {
-  
+function Button({ children, bcolor, size }) {
   return (
-    <button className="Button">{children}</button>
+    <button className="Button"><span>{children}</span></button>
   );
 }
 

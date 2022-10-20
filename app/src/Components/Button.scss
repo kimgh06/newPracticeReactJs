@@ -22,4 +22,7 @@ $blue: #228be6; // 주석 선언
   &:active {
     background: darken($blue, 10%); // 색상 10% 어둡게
   }
+  & span{
+    margin:auto;
+  }
 }
