@@ -1,17 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Button.scss';
 
 
 function Button({ children, bcolor, size }) {
   let toggle = true;
-  let check;
+  const [check, setCheck] = useState("A");
   const click = (()=>{
     toggle = !toggle;
     if(toggle === true){
-      check = "A";
+      setCheck("A");
     }
     else{
-      check = "B";
+      setCheck("B");
     }
     console.log(check);
   })
