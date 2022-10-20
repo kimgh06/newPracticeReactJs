@@ -4,12 +4,23 @@ import './Button.scss';
 
 function Button({ children, bcolor, size }) {
   let toggle = true;
+  let check;
   const click = (()=>{
     toggle = !toggle;
-    console.log(toggle);
+    if(toggle === true){
+      check = "A";
+      console.log(toggle);
+    }
+    else{
+      check = "B";
+    }
   })
-  return (
-    <button className="Button" onClick={click}><span>{children}</span></button>
+  return (<>
+    <div id='main'>
+      <button className="Button" onClick={click}><span>{children}</span></button>
+      <div className='check'><span>{check}</span></div>
+    </div>
+  </>
   );
 }
 
