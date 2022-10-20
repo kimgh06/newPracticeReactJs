@@ -18,7 +18,9 @@ function Button({ children, bcolor, size }) {
   })
   return (<>
     <div id='main'>
-      <button className="Button" onClick={click}><span>{children}</span></button>
+      <button className="Button" onClick={click}>
+        <span>{children}</span>
+      </button>
       <div className='check'><span>{check}</span></div>
     </div>
   </>

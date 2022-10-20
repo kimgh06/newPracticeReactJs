@@ -1,4 +1,16 @@
 $blue: #228be6;
+$gray: #495057;
+$pink: #f06595;
+
+@mixin button-color($color) {
+  background: $color;
+  &:hover {
+    background: lighten($color, 10%);
+  }
+  &:active {
+    background: darken($color, 10%);
+  }
+}
 
 .Button {
   display: inline-flex;
@@ -31,13 +43,25 @@ $blue: #228be6;
     padding-right: 1rem;
   }
 
-  background: $blue;
-  &:hover {
-    background: lighten($blue, 10%);
+  // 색상 관리
+  &.blue {
+    @include button-color($blue);
   }
 
-  &:active {
-    background: darken($blue, 10%);
+  &.gray {
+    @include button-color($gray);
+  }
+
+  &.pink {
+    @include button-color($pink);
+  }
+
+  & + & {
+    margin-left: 1rem;
+  }
+
+  & span{
+    margin: auto;
   }
 }
 
