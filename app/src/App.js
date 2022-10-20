@@ -6,7 +6,7 @@ function App() {
   return (
     <div className="App">
       <div className="buttons">
-        <Button>BUTTON</Button>
+        <Button bcolor="white">BUTTON</Button>
       </div>
     </div>
   );
