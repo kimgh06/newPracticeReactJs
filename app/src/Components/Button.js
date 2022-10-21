@@ -7,13 +7,13 @@ function Button({ children, color, size }) {
   let toggle = true;
   const [check, setCheck] = useState("A");
   const click = (()=>{
+    toggle = !toggle;
     if(toggle === true){
       setCheck("A");
     }
-    else{
+    else {
       setCheck("B");
     }
-    toggle = !toggle;
     console.log(check, toggle);
   })
   return (<>
