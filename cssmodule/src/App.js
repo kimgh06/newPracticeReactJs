@@ -1,23 +1,20 @@
-import React, { useState } from 'react';
-import './App.css';
+import React from 'react';
+import styled from 'styled-components';
+import Button from './components/Button';
 
-import CheckBox from './components/checkBox';
+const AppBlock = styled.div`
+  width: 512px;
+  margin: 0 auto;
+  margin-top: 4rem;
+  border: 1px solid black;
+  padding: 1rem;
+`;
 
 function App() {
-  const [check, setCheck] = useState(false);
-  const onChange = e => {
-    setCheck(e.target.checked);
-  };
   return (
-    <div>
-      <CheckBox onChange={onChange} checked={check}>
-        다음 약관에 모두 동의
-      </CheckBox>
-      <p>
-        <b>check: </b>
-        {check ? 'true' : 'false'}
-      </p>
-    </div>
+    <AppBlock>
+      <Button>BUTTON</Button>
+    </AppBlock>
   );
 }
 
