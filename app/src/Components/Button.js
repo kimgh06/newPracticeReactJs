@@ -3,7 +3,7 @@ import className from 'classnames';
 import './Button.scss';
 
 
-function Button({ children, color, size, outline }) {
+function Button({ children, color, size, outline, fullwidth }) {
   let toggle = true;
   const [check, setCheck] = useState("OFF");
   const click = (()=>{
@@ -18,7 +18,7 @@ function Button({ children, color, size, outline }) {
   })
   return (<>
     <div id='ButtonMain'>
-      <button className={className("Button", size, color, {outline})} onClick={click}>
+      <button className={className("Button", size, color, {outline, fullwidth})} onClick={click}>
         <span>{children}</span>
       </button>
       <div className='check'><span>{check}</span></div>

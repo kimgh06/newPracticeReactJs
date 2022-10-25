@@ -9,7 +9,7 @@ $pink: #f06595;
   }
   &:active {
     background: darken($color, 10%);
-  } 
+  }
   &.outline {
     color: $color;
     background: none;
@@ -30,6 +30,9 @@ $pink: #f06595;
   border: none;
   cursor: pointer;
 
+  & span{
+    margin: auto;
+  }
   // 사이즈 관리
   &.large {
     height: 3rem;
@@ -69,8 +72,13 @@ $pink: #f06595;
     margin-left: 1rem;
   }
 
-  & span{
-    margin: auto;
+  &.fullWidth {
+    width: 100%;
+    justify-content: center;
+    & + & {
+      margin-left: 0;
+      margin-top: 1rem;
+    }
   }
 }
 
