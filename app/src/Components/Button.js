@@ -4,7 +4,7 @@ import './Button.scss';
 
 
 function Button({ children, color, size, outline, fullwidth }) {
-  let toggle = true;
+  const [toggle, setToggle] = useState(true);
   const [check, setCheck] = useState("OFF");
   const click = (()=>{
     if(toggle === true){
@@ -13,7 +13,7 @@ function Button({ children, color, size, outline, fullwidth }) {
     else {
       setCheck("OFF");
     }
-    toggle = !toggle;
+    setToggle(!toggle);
     console.log(check, toggle);
   })
   return (<>
