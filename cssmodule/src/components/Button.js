@@ -75,7 +75,8 @@ function Button({ children, color, size, ...rest }) {
 }
 
 Button.defaultProps = {
-  color: 'blue'
+  color: 'blue',
+  size: 'medium',
 };
 
 export default Button;
