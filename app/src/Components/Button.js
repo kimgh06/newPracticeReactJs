@@ -17,7 +17,7 @@ function Button({ children, color, size }) {
     console.log(check, toggle);
   })
   return (<>
-    <div id='main'>
+    <div id='ButtonMain'>
       <button className={className("Button", size, color)} onClick={click}>
         <span>{children}</span>
       </button>
