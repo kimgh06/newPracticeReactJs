@@ -9,6 +9,15 @@ $pink: #f06595;
   }
   &:active {
     background: darken($color, 10%);
+  } 
+  &.outline {
+    color: $color;
+    background: none;
+    border: 1px solid $color;
+    &:hover {
+      background: $color;
+      color: white;
+    }
   }
 }
 
