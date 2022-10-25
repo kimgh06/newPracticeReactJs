@@ -8,6 +8,7 @@ function CheckBox({ children, checked, ...rest }) {
         <input type="checkbox" checked={checked} {...rest} />
         <div>{checked ? <MdCheckBox /> : <MdCheckBoxOutlineBlank />}</div>
       </label>
+      
       <span>{children}</span>
     </div>
   );
