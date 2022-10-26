@@ -80,14 +80,13 @@ const StyledButton = styled.button`
 
   /* 색상 */
   ${colorStyles}
-  & span{
-    margin:auto;
-  }
   /* 기타 */
   & + & {
     margin-left: 1rem;
   }
-
+  & span{
+    margin:auto;
+  }
   ${fullWidthStyle}
 `;
 
