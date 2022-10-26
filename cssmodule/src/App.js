@@ -23,7 +23,7 @@ function App() {
     setDialog(true);
   };
   const onConfirm = () => {
-    console.log('확인');
+    console.log('삭제');
     setDialog(false);
   };
   const onCancel = () => {
