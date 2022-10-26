@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styled, { keyframes } from 'styled-components';
 import Button from './Button';
 
@@ -77,7 +77,19 @@ function Dialog({
   onCancel,
   visible
 }) {
-  if (!visible) return null;
+  const [animate, setAnimate] = useState(false);
+  const [localVisible, setLocalVisible] = useState(visible);
+
+  useEffect(() => {
+    // visible 값이 true -> false 가 되는 것을 감지
+    if (localVisible && !visible) {
+      setAnimate(true);
+      setTimeout(() => setAnimate(false), 250);
+    }
+    setLocalVisible(visible);
+  }, [localVisible, visible]);
+
+  if (!animate && !localVisible) return null;
   return (
     <DarkBackground>
       <DialogBlock>
