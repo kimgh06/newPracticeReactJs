@@ -20,6 +20,11 @@ const initialTodos = [
     id: 4,
     text: '기능 구현하기',
     done: false
+  },
+  {
+    id:5,
+    text:"집가기",
+    done:false
   }
 ];
 
