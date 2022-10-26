@@ -121,7 +121,7 @@ function Dialog({
 
   if (!animate && !localVisible) return null;
   return (
-    <DarkBackground disappear={!visible} onClick={onCancel}>
+    <DarkBackground disappear={!visible}>
       <DialogBlock disappear={!visible}>
         <h3>{title}</h3>
         <p>{children}</p>
