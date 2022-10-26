@@ -13,31 +13,41 @@ const colorStyles = css`
       &:active {
         background: ${darken(0.1, selected)};
       }
+      ${props =>
+        props.outline &&
+        css`
+          color: ${selected};
+          background: none;
+          border: 1px solid ${selected};
+          &:hover {
+            background: ${selected};
+            color: white;
+          }
+        `}
     `;
   }}
 `;
 
+const sizes = {
+  large: {
+    height: '3rem',
+    fontSize: '1.25rem'
+  },
+  medium: {
+    height: '2.25rem',
+    fontSize: '1rem'
+  },
+  small: {
+    height: '1.75rem',
+    fontSize: '0.875rem'
+  }
+};
+
 const sizeStyles = css`
-  ${props =>
-    props.size === 'large' &&
-    css`
-      height: 3rem;
-      font-size: 1.25rem;
-    `}
-
-  ${props =>
-    props.size === 'medium' &&
-    css`
-      height: 2.25rem;
-      font-size: 1rem;
-    `}
-
-    ${props =>
-      props.size === 'small' &&
-      css`
-        height: 1.75rem;
-        font-size: 0.875rem;
-      `}
+  ${({ size }) => css`
+    height: ${sizes[size].height};
+    font-size: ${sizes[size].fontSize};
+  `}
 `;
 
 const StyledButton = styled.button`
@@ -54,24 +64,26 @@ const StyledButton = styled.button`
 
   /* 크기 */
   ${sizeStyles}
-
-  /* 색상 */
-  ${colorStyles}
   & span{
     margin:auto;
   }
+  /* 색상 */
+  ${colorStyles}
+
   /* 기타 */
   & + & {
     margin-left: 1rem;
   }
 `;
 
-function Button({ children, color, size, ...rest }) {
-  return <StyledButton color={color} size={size} {...rest}>
+function Button({ children, color, size, outline, ...rest }) {
+  return (
+    <StyledButton color={color} size={size} outline={outline} {...rest}>
       <span>
-        {children}
+      {children}
       </span>
-    </StyledButton>;
+    </StyledButton>
+  );
 }
 
 Button.defaultProps = {
