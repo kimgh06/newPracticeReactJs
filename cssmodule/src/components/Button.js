@@ -56,7 +56,7 @@ const fullWidthStyle = css`
     css`
       width: 100%;
       justify-content: center;
-      & + & {
+      &:not(:first-child) {
         margin-left: 0;
         margin-top: 1rem;
       }
@@ -80,7 +80,7 @@ const StyledButton = styled.button`
   /* 색상 */
   ${colorStyles}
   /* 기타 */
-  & + & {
+  &:not(:first-child) {
     margin-left: 1rem;
   }
   & span{
@@ -91,7 +91,12 @@ const StyledButton = styled.button`
 
 function Button({ children, color, size, outline, fullWidth, ...rest }) {
   return (
-    <StyledButton color={color} size={size} outline={outline} fullWidth={fullWidth} {...rest}>
+    <StyledButton 
+    color={color} 
+    size={size} 
+    outline={outline} 
+    fullWidth={fullWidth} 
+    {...rest}>
       <span>
       {children}
       </span>
