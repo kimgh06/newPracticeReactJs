@@ -77,7 +77,6 @@ const StyledButton = styled.button`
 
   /* 크기 */
   ${sizeStyles}
-
   /* 색상 */
   ${colorStyles}
   /* 기타 */
@@ -90,9 +89,9 @@ const StyledButton = styled.button`
   ${fullWidthStyle}
 `;
 
-function Button({ children, color, size, outline, fullwidth, ...rest }) {
+function Button({ children, color, size, outline, fullWidth, ...rest }) {
   return (
-    <StyledButton color={color} size={size} outline={outline} fullwidth={fullwidth} {...rest}>
+    <StyledButton color={color} size={size} outline={outline} fullWidth={fullWidth} {...rest}>
       <span>
       {children}
       </span>
