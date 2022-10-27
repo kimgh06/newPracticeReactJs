@@ -14,7 +14,7 @@ function User(){
   const {loading, data: users, error} = state;
 
   if(loading) return <div>loading...</div>;
-  if(error) return <div>Found Errors</div>;
+  if(error) return <div>Errors Found</div>;
   if(!users) return <button onClick={refetch}>Try</button>;
   
   return (
