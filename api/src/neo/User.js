@@ -2,32 +2,28 @@ import React from 'react';
 import axios from 'axios';
 import useAsync from './useAsync';
 
-async function getUsers(){
-  const response = await axios.get('https://jsonplaceholder.typicode.com/users');
+async function getUser(id){
+  const response = await axios.get(
+    `https://jsonplaceholder.typicode.com/users/${id}`
+  );
   return response.data;
 }
 
+function User({id}){
+  const [state] = useAsync(()=>getUser(id),[id]);
+  const {loading, data:user, error}=state;
 
-function User(){
-  const [state, refetch] = useAsync(getUsers,[], true);
-
-  const {loading, data: users, error} = state;
-
-  if(loading) return <div>loading...</div>;
+  if(loading) return <div>Loading...</div>;
   if(error) return <div>Errors Found</div>;
-  if(!users) return <button onClick={refetch}>Try</button>;
-  
-  return (
-  <>
-    <ul>
-      {users.map(user =>(
-          <li key={user.id}>
-          {user.username} ({user.name})
-        </li>
-      ))}
-    </ul>
-    <button onClick={refetch}>Retry</button>
-  </>
+  if(!user) return null;
+
+  return(
+    <div>
+      <h2>{user.username}</h2>
+      <p>
+        <b>Email : </b>{user.email}
+      </p>
+    </div>
   );
 }
 

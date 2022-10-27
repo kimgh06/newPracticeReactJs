@@ -1,10 +1,10 @@
 import React from 'react';
-import User from './neo/User';
+import Users from './neo/Users';
 
 function App() {
   return (
     <>
-      <User/>
+      <Users/>
     </>
   );
 }
