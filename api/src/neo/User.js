@@ -9,13 +9,13 @@ async function getUsers(){
 
 
 function User(){
-  const [state, refetch] = useAsync(getUsers,[]);
+  const [state, refetch] = useAsync(getUsers,[], true);
 
   const {loading, data: users, error} = state;
 
   if(loading) return <div>loading...</div>;
   if(error) return <div>Found Errors</div>;
-  if(!users) return null;
+  if(!users) return <button onClick={refetch}>Try</button>;
   
   return (
   <>
