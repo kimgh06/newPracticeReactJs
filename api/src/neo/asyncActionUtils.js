@@ -19,3 +19,35 @@ export default function createAsyncDispatcher(type, promiseFn){
   }
   return actionHandler;
 }
+
+export const initialAsyncState = {
+  loading: false,
+  data: null,
+  error:null
+};
+
+const error = error =>({
+  loading:false,
+  data:null,
+  error:error
+});
+
+export function createAsyncHandler(type, key){
+  const SUCCESS = `${type}_SUCCESS`;
+  const ERROR = `${type}_ERROR`;
+
+  function handler(state, action){
+    switch(action.type){
+      case type:
+        return{
+          ...state,
+          [key]:loadingState
+        };
+      case SUCCESS:
+        return{
+            ...state,
+            [key]:success(action.data)
+        };
+    }
+  }
+}
