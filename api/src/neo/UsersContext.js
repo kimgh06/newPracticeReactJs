@@ -1,5 +1,6 @@
 import React, {craeteContext, useReducer, userContext} from 'react';
 import axios from 'axios';
+import * as api from './api';
 
 const initialState = {
   users:{
@@ -93,26 +94,5 @@ export function useUsersDispatch(){
   return dispatch;
 }
 
-export async function getUsers(dispatch) {
-    dispatch({ type: 'GET_USERS' });
-    try {
-      const response = await axios.get(
-        'https://jsonplaceholder.typicode.com/users'
-      );
-      dispatch({ type: 'GET_USERS_SUCCESS', data: response.data });
-    } catch (e) {
-      dispatch({ type: 'GET_USERS_ERROR', error: e });
-    }
-  }
-  
-  export async function getUser(dispatch, id) {
-    dispatch({ type: 'GET_USER' });
-    try {
-      const response = await axios.get(
-        `https://jsonplaceholder.typicode.com/users/${id}`
-      );
-      dispatch({ type: 'GET_USER_SUCCESS', data: response.data });
-    } catch (e) {
-      dispatch({ type: 'GET_USER_ERROR', error: e });
-    }
-  }
+export const getUsers = createAsyncDispatcher('GET_USERS', api.getUsers);
+export const getUser = createAsyncDispatcher('GET_USER', api.getUser);
