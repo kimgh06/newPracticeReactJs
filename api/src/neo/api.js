@@ -8,5 +8,8 @@ export async function getUsers(){
 }
 
 export async function getUser(id){
-  const response = await axios.get
+  const response = await axios.get(
+    `https://jsonplaceholder.typicode.com/users/${id}`
+  );
+  return response.data;
 }
