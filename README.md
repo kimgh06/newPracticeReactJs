@@ -10,6 +10,8 @@ node module 생각 보다 용량이 컸습니다.
 
 `$ git clone [this.URL]`
 
+`npm install`
+
 `cd [directory name]`
 
 `npm start` or `yarn start`
