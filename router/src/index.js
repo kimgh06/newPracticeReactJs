@@ -1,16 +1,15 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import { BrowserRouter } from 'react-router-dom'; // * BrowserRouter 불러오기
+import ReactDOM from 'react-dom/client';
+import {BrowserRouter} from 'react-router-dom';
 import './index.css';
 import App from './App';
-// import * as serviceWorker from './serviceWorker';
+import reportWebVitals from './reportWebVitals';
 
-// * App 을 BrowserRouter 로 감싸기
-ReactDOM.render(
-  <BrowserRouter>
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <React.StrictMode>
     <App />
-  </BrowserRouter>,
-  document.getElementById('root')
+  </React.StrictMode>
 );
 
-// serviceWorker.unregister();
+reportWebVitals();
