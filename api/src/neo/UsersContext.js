@@ -1,19 +1,18 @@
 import React, {craeteContext, useReducer, userContext} from 'react';
-import axios from 'axios';
+import {
+  createAsyncDispatcher,
+  createAsyncHandler,
+  initialAsyncState
+}from './asyncActionUtils';
 import * as api from './api';
 
 const initialState = {
-  users:{
-    loading: false,
-    data: null,
-    error:null
-  },
-  user:{
-    loading:false,
-    data:null,
-    error:null
-  },
+  users:initialAsyncState,
+  user:initialAsyncState
 };
+
+const usersHandler = createAsyncHandler('GET_USERS','users');
+const userHandler = createAsyncHandler('GET_USER', 'user');
 
 const loadingState ={
   loading:true,
@@ -30,35 +29,13 @@ const success = data=>({
 function usersReducer(state, action){
   switch(action.type){
     case 'GET_USERS':
-      return{
-        ...state,
-        users:loadingState,
-      };
     case 'GET_USERS_SUCCESS':
-      return{
-        ...state,
-        users:success(action.data)
-      };
     case 'GET_USERS_ERROR':
-      return{
-        ...state,
-        users:error(action.error)
-      };
+      return usersHandler(state, action);
     case 'GET_USER':
-      return{
-        ...state,
-        user:loadingState
-      };
     case 'GET_USER_SUCCESS':
-      return{
-        ...state,
-        user: error(action.data)
-      };
-    case 'GET_USER_ERROR':
-      return{
-        ...state,
-        usr: error(action.error)
-      };
+    case 'GET_USER_ERROR':      
+        return usersHandler(state, action);
     default:
       throw new Error(`Unhanded action type: ${action.type}`);
   }

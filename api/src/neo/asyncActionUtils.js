@@ -48,6 +48,14 @@ export function createAsyncHandler(type, key){
             ...state,
             [key]:success(action.data)
         };
+      case ERROR:
+        return{
+            ...state,
+            [key]:error(action.error)
+        };
+      default:
+        return state;
     }
   }
+  return handler;
 }
